@@ -2,9 +2,7 @@
   "name": "easy-instagram-feed",
   "version": "1.0.9",
   "main": "index.js",
-  "scripts": {
-    "build": "webpack"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "@frankluongo",
   "license": "MIT",
