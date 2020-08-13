@@ -12,7 +12,7 @@ function EasyInstaFeed(feedUrl, instaUrl) {
   if (!photos || hasBeenAnHour) {
     buildInstagramFeed();
   } else {
-    addPhotos();
+    addPhotos(photos);
   }
   // Builder
   async function buildInstagramFeed() {
@@ -23,6 +23,7 @@ function EasyInstaFeed(feedUrl, instaUrl) {
   }
   // Actions
   function addPhotos(photos) {
+    if (!photos) return;
     photos.forEach(addPhoto);
   }
   function addPhoto(photo) {
