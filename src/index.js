@@ -2,7 +2,7 @@ const PHOTOS = "photos";
 const TIME = "currentTime";
 const HOUR = 3600000;
 
-export default function EasyInstaFeed(feedUrl, instaUrl) {
+function EasyInstaFeed(feedUrl, instaUrl) {
   const instaFeed = document.querySelector("[data-instagram-feed]");
   if (!instaFeed) return;
   const now = Date.now();
@@ -51,3 +51,5 @@ export default function EasyInstaFeed(feedUrl, instaUrl) {
     return parseInt(localStorage.getItem(TIME));
   }
 }
+
+module.exports = EasyInstaFeed;
