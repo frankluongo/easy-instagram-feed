@@ -7,5 +7,9 @@
   "author": "@frankluongo",
   "license": "MIT",
   "description": "Super easy Instagram Feed integration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frankluongo/easy-instagram-feed"
+  },
   "devDependencies": {}
 }
