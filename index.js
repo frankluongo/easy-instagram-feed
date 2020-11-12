@@ -2,26 +2,21 @@ const PHOTOS = "photos";
 const TIME = "currentTime";
 const HOUR = 3600000;
 
-function EasyInstaFeed(feedUrl) {
+async function EasyInstaFeed(feedUrl) {
   const now = Date.now();
   const photos = JSON.parse(localStorage.getItem(PHOTOS));
   const currentTime = getCurrentTime();
   const hasBeenAnHour = now - currentTime >= HOUR;
-  if (!photos || hasBeenAnHour) {
-    return buildInstagramFeed();
-  } else {
-    return addPhotos(photos);
-  }
+  const needsToFetch = !photos || hasBeenAnHour;
+
+  const results = needsToFetch ? await buildInstagramFeed() : photos;
+  return results;
+
   // Builder
   async function buildInstagramFeed() {
     const photos = await getPhotos();
     localStorage.setItem(PHOTOS, JSON.stringify(photos));
     localStorage.setItem(TIME, Date.now());
-    addPhotos(photos);
-  }
-  // Actions
-  function addPhotos(photos) {
-    if (!photos) return null;
     return photos;
   }
   function cleanPhotosData(photos) {
