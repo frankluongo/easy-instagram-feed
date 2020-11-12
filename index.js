@@ -8,9 +8,9 @@ function EasyInstaFeed(feedUrl) {
   const currentTime = getCurrentTime();
   const hasBeenAnHour = now - currentTime >= HOUR;
   if (!photos || hasBeenAnHour) {
-    buildInstagramFeed();
+    return buildInstagramFeed();
   } else {
-    addPhotos(photos);
+    return addPhotos(photos);
   }
   // Builder
   async function buildInstagramFeed() {
