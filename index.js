@@ -2,9 +2,7 @@ const PHOTOS = "photos";
 const TIME = "currentTime";
 const HOUR = 3600000;
 
-function EasyInstaFeed(feedUrl, instaUrl) {
-  const instaFeed = document.querySelector("[data-instagram-feed]");
-  if (!instaFeed) return;
+function EasyInstaFeed(feedUrl) {
   const now = Date.now();
   const photos = JSON.parse(localStorage.getItem(PHOTOS));
   const currentTime = getCurrentTime();
@@ -23,18 +21,8 @@ function EasyInstaFeed(feedUrl, instaUrl) {
   }
   // Actions
   function addPhotos(photos) {
-    if (!photos) return;
-    photos.forEach(addPhoto);
-  }
-  function addPhoto(photo) {
-    instaFeed.innerHTML += `
-      <a
-        class="instagram-feed-item"
-        style="background-image: url(${photo.node.thumbnail_src})"
-        href="${instaUrl}"
-        target="_blank" rel="noopener noreferrer"
-      ></a>
-    `;
+    if (!photos) return null;
+    return photos;
   }
   function cleanPhotosData(photos) {
     return photos.user.edge_owner_to_timeline_media.edges;
